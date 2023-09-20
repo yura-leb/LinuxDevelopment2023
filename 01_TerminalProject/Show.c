@@ -18,12 +18,8 @@ void main(int argc, char **argv) {
         exit(EXIT_FAILURE);
     }
 
-    char strings[500][200];
+    char string[300];
     int i = 0;
-    while(fgets(strings[i], 200, src)) {
-        i++;
-    }
-    int strings_len = i;
 
     initscr();
     noecho();
@@ -35,18 +31,18 @@ void main(int argc, char **argv) {
     keypad(win, TRUE);
     scrollok (win, TRUE);
     box(win, 0, 0); 
-    wmove(win, 1, 0);
-    int number_of_strings = strings_len < LINES - 2 * DX - 1 ? strings_len : LINES - 2 * DX - 1;
-    for (i = 0; i < number_of_strings; ++i) {
-        wprintw(win, "  %s", strings[i]);
+    wmove(win, 2, 0);
+    int window_size = LINES - 2 * DX - 2;
+    i = 0;
+    while (i < window_size && fgets(string, 300, src)) {
+        wprintw(win, "  %s", string);
         box(win, 0, 0); 
         wrefresh(win);
+        ++i;
     }
-    i = 0;
     while((c = wgetch(win)) != 27) {
-        if (c == 32 && i < strings_len) {
-            wprintw(win, "  %s", strings[i]);
-            ++i;
+        if (c == 32 && fgets(string, 300, src)) {
+            wprintw(win, "  %s", string);
             box(win, 0, 0); 
             wrefresh(win);
         }
