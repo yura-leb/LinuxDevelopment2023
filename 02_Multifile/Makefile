@@ -19,11 +19,6 @@ liboutput_static.a:	fun.o const.o
 liboutput.so: const.o fun.o
 	cc -shared $^ -o $@
 
-compare:	prog.text prog-a.text prog-so.text
-	cmp prog.text prog-a.text; 
-	cmp prog.text prog-so.text; 
-	cmp prog-a.text prog-so.text;
-
 test: test1 test2 test3 
 
 test1:	prog prog-a prog-so
