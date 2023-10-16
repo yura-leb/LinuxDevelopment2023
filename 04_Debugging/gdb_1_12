@@ -1,0 +1,14 @@
+set pagination off
+set logging enabled off
+
+b range.c:7 if i % 5 == 0
+    command 1
+    silent
+    echo @@@
+    printf "%d %d %d %d\n", start, stop, step, i
+    continue
+end 
+
+
+run 1 12 > /dev/null
+quit

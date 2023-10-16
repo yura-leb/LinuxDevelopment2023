@@ -1,0 +1,15 @@
+set pagination off
+set logging enabled off
+set $count = 0
+
+b range.c:7 if ($count++ >= 27 && $count <= 35)
+    command 1
+    silent
+    echo @@@
+    printf "%d %d %d %d\n", start, stop, step, i
+    continue
+end 
+
+
+run -100 100 3 > /dev/null
+quit

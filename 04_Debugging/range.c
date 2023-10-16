@@ -18,7 +18,12 @@ int main(int argc, char *argv[]) {
     int start = 0, stop = 0, step = 1; 
     switch (argc) {
         case 1:
-            printf("help\n");
+            printf("Arithmetic progression generator\n"
+                    "Accepts from one to three parameters by analogy with Python's range()\n"
+                    "   Without parameters — outputs this help\n"
+                    "   With one parameter stop — outputs the sequence [0, 1, ... stop-1] in a column\n"
+                    "   With two — start, stop — sequence [start, start+1, ... stop-1]\n"
+                    "   With three — start, stop, step — sequence [start, start+step, start+2step, ... stop-1]''');\n");
             return 0;
         case 2:
             stop = atoi(argv[1]);
