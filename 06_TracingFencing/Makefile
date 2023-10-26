@@ -7,7 +7,7 @@ move: move.c
 libprotect.so: libprotect.c
 	gcc -shared -fPIC -o libprotect.so libprotect.c -ldl
 
-test: move
+test: move libprotect.so
 	./test1.sh
 	./test2.sh
 	./test3.sh
