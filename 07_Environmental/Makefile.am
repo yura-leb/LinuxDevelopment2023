@@ -1,4 +1,4 @@
-AMFLAGS = -Wall -O0 -g
+CFLAGS = -O0 -g
 
 bin_PROGRAMS=rhasher
 

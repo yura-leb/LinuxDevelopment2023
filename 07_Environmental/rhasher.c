@@ -3,10 +3,16 @@
 #include <string.h>
 #include <rhash.h>
 #include <errno.h>
+#include "config.h"
 
 #ifdef USE_READLINE
   #include <readline/readline.h>
 #endif
+
+#ifndef DX
+#define DX 3
+#endif
+
 
 int calculate_msg_from_string(const char* msg, int hash_id, int is_hexadeximal) {
     char digest[64];
@@ -60,9 +66,8 @@ int main() {
     int is_hexadeximal = 0; // 0 for base64, 1 for hexadeximal
     int hash_id = 0;
     rhash_library_init();
-    
     #ifdef USE_READLINE
-    while ((line = readline("")) != NULL) {
+    while ((line = readline(NULL)) != NULL) {
     #else
     while ((read = getline(&line, &len, stdin)) != -1) {
     #endif
