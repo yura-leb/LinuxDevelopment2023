@@ -6,7 +6,6 @@
 
 #ifdef USE_READLINE
   #include <readline/readline.h>
-  #include <readline/history.h>
 #endif
 
 int calculate_msg_from_string(const char* msg, int hash_id, int is_hexadeximal) {
@@ -15,16 +14,16 @@ int calculate_msg_from_string(const char* msg, int hash_id, int is_hexadeximal) 
 
     int res = rhash_msg(hash_id, msg, strlen(msg), digest);
     if (res < 0) {
-        fprintf(stderr, "message digest calculation error\n");
+        fprintf(stderr, "Message digest calculation error\n");
         return 1;
     }
 
     if (is_hexadeximal) {
-        rhash_print_bytes(output, digest, rhash_get_digest_size(hash_id),
-            (RHPR_HEX | RHPR_UPPERCASE));
+        rhash_print_bytes(output, digest, rhash_get_digest_size(RHASH_SHA1),
+            RHPR_HEX);
     } else {
-        rhash_print_bytes(output, digest, rhash_get_digest_size(hash_id),
-            (RHPR_BASE64 | RHPR_UPPERCASE));
+        rhash_print_bytes(output, digest, rhash_get_digest_size(RHASH_SHA1),
+            RHPR_BASE64);
     }
 
     printf("%s\n", output);
@@ -43,10 +42,10 @@ int calculate_msg_from_file(const char* filepath, int hash_id, int is_hexadexima
 
     if (is_hexadeximal) {
         rhash_print_bytes(output, digest, rhash_get_digest_size(hash_id),
-            (RHPR_HEX | RHPR_UPPERCASE));
+            RHPR_HEX);
     } else {
         rhash_print_bytes(output, digest, rhash_get_digest_size(hash_id),
-            (RHPR_BASE64 | RHPR_UPPERCASE));
+            RHPR_BASE64);
     }
 
     printf("%s\n", output);
@@ -63,7 +62,7 @@ int main() {
     rhash_library_init();
     
     #ifdef USE_READLINE
-    while ((line = readline(prompt)) != NULL) {
+    while ((line = readline("")) != NULL) {
     #else
     while ((read = getline(&line, &len, stdin)) != -1) {
     #endif

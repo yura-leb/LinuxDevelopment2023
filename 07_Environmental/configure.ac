@@ -12,11 +12,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_PROG_CC
 
 # Checks for libraries.
-AC_CHECK_LIB([rhash],[rhash_library_init],[],[AC_MSG_ERROR([There is no rhash library])])
-AC_CHECK_LIB([rhash],[rhash_msg],[],[AC_MSG_ERROR([There is no rhash library])])
-AC_CHECK_LIB([rhash],[rhash_print_bytes],[],[AC_MSG_ERROR([There is no rhash library])])
-AC_CHECK_LIB([rhash],[rhash_get_digest_size],[],[AC_MSG_ERROR([There is no rhash library])])
-AC_CHECK_LIB([rhash],[rhash_file],[],[AC_MSG_ERROR([There is no rhash library])])
+AC_CHECK_LIB([rhash],[rhash_library_init],[],[AC_MSG_ERROR([Rhash is needed])])
 AC_CHECK_LIB([readline],[readline])
 
 # Checks for header files.
