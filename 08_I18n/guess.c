@@ -6,25 +6,25 @@
 #include <string.h>
 #include "config.h"
 
+#define LOCALE_PATH "."
 #define _(STRING) gettext(STRING)
 
 int main(int argc, char *argv[]) {
     int low = 1;
     int high = 100;
-    int userNumber;
-    int guess;
+    int guess = 0;
     int attempts = 0;
 
 	setlocale (LC_ALL, "");
-	bindtextdomain (guess, LOCALE_PATH);
-	textdomain (guess);
+	bindtextdomain ("guess", LOCALE_PATH);
+	textdomain ("guess");
 
     while (low != high) {
         guess = (low + high) / 2; 
         attempts++;
 
         printf(_("Is it greater than %d? Enter yes or no\n"), guess);
-        char feedback[3]; // Buffer for "Yes" or "No"
+        char feedback[4]; // Buffer for "Yes" or "No"
         int res = scanf("%s", feedback);
 
         if (strcmp(feedback, _("yes")) == 0) {

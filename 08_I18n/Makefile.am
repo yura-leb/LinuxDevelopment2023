@@ -12,3 +12,12 @@ messages.pot:	guess.pot guess.c
 	xgettext -k_ -c guess.c -o messages.new.pot
 	cp guess.pot messages.pot
 	msgmerge -U messages.pot messages.new.pot
+
+run_en:
+	./guess
+
+run_ru:
+	LANGUAGE=ru_RU.UTF8 ./guess
+
+clean:
+	git clean -fd

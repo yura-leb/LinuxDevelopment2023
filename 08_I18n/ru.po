@@ -1,15 +1,15 @@
-# Russian translations for guess package
-# Английские переводы для пакета guess.
-# Copyright (C) 2023 THE guess'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the guess package.
+# Russian translations for  08_I18n package
+# Английские переводы для пакета  08_I18n.
+# Copyright (C) 2023 THE  08_I18n'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the  08_I18n package.
 # Yuriy Lebedinskiy <yurleb@linuxprac.box.office.basealt.ru>, 2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: guess 0.0\n"
+"Project-Id-Version:  08_I18n\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-13 14:34+0000\n"
-"PO-Revision-Date: 2023-11-13 13:54+0000\n"
+"POT-Creation-Date: 2023-11-13 18:20+0000\n"
+"PO-Revision-Date: 2023-11-13 14:49+0000\n"
 "Last-Translator: Yuriy Lebedinskiy <yurleb@linuxprac.box.office.basealt.ru>\n"
 "Language-Team: Russian <gnu@d07.ru>\n"
 "Language: ru\n"
@@ -19,25 +19,25 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../src/guess.c:29
+#: guess.c:26
 #, c-format
 msgid "Is it greater than %d? Enter yes or no\n"
 msgstr "Ваше число больше, чем %d? Ответьте да или нет\n"
 
-#: ../src/guess.c:33
+#: guess.c:30
 msgid "yes"
 msgstr "да"
 
-#: ../src/guess.c:35
+#: guess.c:32
 msgid "no"
 msgstr "нет"
 
-#: ../src/guess.c:38
+#: guess.c:35
 #, c-format
 msgid "Incorrect answer\n"
 msgstr "Неправильный формат ввода\n"
 
-#: ../src/guess.c:42
+#: guess.c:39
 #, c-format
 msgid "Your number is: %d\n"
 msgstr "Ваше число: %d\n"
