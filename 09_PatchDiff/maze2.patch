@@ -1,0 +1,62 @@
+--- maze1.c	2023-11-24 11:13:30.717783552 +0000
++++ maze2.c	2023-11-24 11:19:35.226629972 +0000
+@@ -2,21 +2,21 @@
+ #include <time.h>
+ #include <stdlib.h>
+ 
+-void init_maze(int n, char maze[n][n]) {
++void init_maze(int n, char maze[n][n], char wall, char empty) {
+     for (int i = 0; i < n; ++i) {
+         for (int j = 0; j < n; ++j) {
+             if (i % 2 == 0 || j % 2 == 0) {
+-                maze[i][j] = '#';
++                maze[i][j] = wall;
+             }
+             else {
+-                maze[i][j] = '.';
++                maze[i][j] = empty;
+             }
+         }
+     }
+ }
+ 
+ 
+-void generate_maze(int n, char maze[n][n]) {
++void generate_maze(int n, char maze[n][n], char empty) {
+     srand(time(NULL)); 
+     int num_rooms = (n - 1) / 2;
+     int num_visited = 0;
+@@ -110,7 +110,7 @@
+         int deltaX = nextX - x;
+         int deltaY = nextY - y;
+ 
+-        maze[2 * x + 1 + deltaX][2 * y + 1 + deltaY] = '.';
++        maze[2 * x + 1 + deltaX][2 * y + 1 + deltaY] = empty;
+ 
+         
+         visited[nextX][nextY] = 1;
+@@ -122,18 +122,20 @@
+ 
+ int main(int argc, char *argv[]) {
+     srand((unsigned int)time(NULL));
+-    if (argc != 2) {
++    if (argc != 3) {
+         printf("Incorrect number of parameters\n");
+         return 1;
+     }
+ 
+-    int num_rooms = atoi(argv[1]);
++    char wall = argv[1][0];
++    char empty = argv[1][1];
++    int num_rooms = atoi(argv[2]);
+ 
+     int n = num_rooms * 2 + 1;
+     char maze[n][n];
+ 
+-    init_maze(n, maze);
+-    generate_maze(n, maze);
++    init_maze(n, maze, wall, empty);
++    generate_maze(n, maze, empty);
+     for (int i = 0; i < n; ++i) {
+         for (int j = 0; j < n; ++j) {
+             printf("%c", maze[i][j]);

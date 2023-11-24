@@ -1,0 +1,18 @@
+--- maze.c	2023-11-24 11:05:27.307292393 +0000
++++ maze1.c	2023-11-24 11:13:30.717783552 +0000
+@@ -122,7 +122,14 @@
+ 
+ int main(int argc, char *argv[]) {
+     srand((unsigned int)time(NULL));
+-    int n = 13;
++    if (argc != 2) {
++        printf("Incorrect number of parameters\n");
++        return 1;
++    }
++
++    int num_rooms = atoi(argv[1]);
++
++    int n = num_rooms * 2 + 1;
+     char maze[n][n];
+ 
+     init_maze(n, maze);
