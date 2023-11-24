@@ -1,6 +1,14 @@
 --- maze.c	2023-11-24 11:05:27.307292393 +0000
-+++ maze1.c	2023-11-24 11:13:30.717783552 +0000
-@@ -122,7 +122,14 @@
++++ maze1.c	2023-11-24 11:23:47.279757817 +0000
+@@ -17,7 +17,6 @@
+ 
+ 
+ void generate_maze(int n, char maze[n][n]) {
+-    srand(time(NULL)); 
+     int num_rooms = (n - 1) / 2;
+     int num_visited = 0;
+     int visited[num_rooms][num_rooms]; 
+@@ -122,7 +121,14 @@
  
  int main(int argc, char *argv[]) {
      srand((unsigned int)time(NULL));

@@ -1,5 +1,5 @@
---- maze1.c	2023-11-24 11:13:30.717783552 +0000
-+++ maze2.c	2023-11-24 11:19:35.226629972 +0000
+--- maze1.c	2023-11-24 11:23:47.279757817 +0000
++++ maze2.c	2023-11-24 11:23:45.961772836 +0000
 @@ -2,21 +2,21 @@
  #include <time.h>
  #include <stdlib.h>
@@ -23,10 +23,10 @@
  
 -void generate_maze(int n, char maze[n][n]) {
 +void generate_maze(int n, char maze[n][n], char empty) {
-     srand(time(NULL)); 
      int num_rooms = (n - 1) / 2;
      int num_visited = 0;
-@@ -110,7 +110,7 @@
+     int visited[num_rooms][num_rooms]; 
+@@ -109,7 +109,7 @@
          int deltaX = nextX - x;
          int deltaY = nextY - y;
  
@@ -35,7 +35,7 @@
  
          
          visited[nextX][nextY] = 1;
-@@ -122,18 +122,20 @@
+@@ -121,18 +121,20 @@
  
  int main(int argc, char *argv[]) {
      srand((unsigned int)time(NULL));
