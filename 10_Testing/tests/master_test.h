@@ -16,10 +16,8 @@
     do { \
         if (x) { \
             printf(C_GREEN("PASS") " %s\n", s); \
-            count_pass++; \
         } else { \
             printf(C_RED("FAIL") " %s\n", s); \
-            count_fail++; \
         } \
     } while (0)
 

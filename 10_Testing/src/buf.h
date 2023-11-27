@@ -23,8 +23,12 @@
  *         printf("values[%zu] = %f\n", i, values[i]);
  *     buf_free(values);
  */
+#pragma once
 #include <stddef.h>
 #include <stdlib.h>
+
+void *
+buf_grow1(void *, size_t, ptrdiff_t);
 
 #ifndef BUF_INIT_CAPACITY
 #  define BUF_INIT_CAPACITY 8
@@ -39,6 +43,7 @@ struct buf {
     size_t size;
     char buffer[];
 };
+
 
 #define buf_ptr(v) \
     ((struct buf *)((char *)(v) - offsetof(struct buf, buffer)))
@@ -81,5 +86,3 @@ struct buf {
     ((v) ? (buf_ptr((v))->size = 0) : 0)
 
 
-static void *
-buf_grow1(void *v, size_t esize, ptrdiff_t n);

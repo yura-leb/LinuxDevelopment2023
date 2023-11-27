@@ -1,6 +1,7 @@
 #include "master_test.h"
 
 int main(int argc, char **argv) {
+    float *a = 0;
     buf_push(a, 1.1);
     buf_push(a, 1.2);
     buf_push(a, 1.3);
