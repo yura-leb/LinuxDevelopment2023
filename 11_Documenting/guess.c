@@ -37,18 +37,6 @@ char *int_to_roman(int number) {
     }
 }
 
-/** Converts roman number to int number
- *
- * @param number value for conversion
- */
-char *roman_to_int(char *number) {
-    for (int i = 1; i <= 100; i++) {
-        if (strcmp(roman_numbers[i], number) == 0)
-            return roman_numbers[i];
-    }
-    return NULL;
-}
-
 int main(int argc, char *argv[]) {
     int low = 1;
     int high = 100;
@@ -65,7 +53,7 @@ int main(int argc, char *argv[]) {
         if (strcmp(argv[1], "--help") == 0) {
             printf(_("Guesses a number from 1 to 100 using binary search, even with roman numbers.\n"));
             printf(_("Usage: number [-r]\n"));
-            printf(_("\t-r\tuse roman numbers\n"));
+            printf(_("\t-r\t use roman numbers\n"));
             return 0;
         }
         if (strcmp(argv[1], "-r") == 0)
@@ -73,11 +61,16 @@ int main(int argc, char *argv[]) {
     }
 
 
+    char strnum[32];
     while (low != high) {
         guess = (low + high) / 2; 
         attempts++;
-
-        printf(_("Is it greater than %d? Enter yes or no\n"), guess);
+        if (is_roman) {
+            strcpy(strnum, int_to_roman(guess));
+        } else {
+            sprintf(strnum, "%d", guess);
+        }
+        printf(_("Is it greater than %s? Enter yes or no\n"), strnum);
         char feedback[4]; // Buffer for "Yes" or "No"
         int res = scanf("%s", feedback);
 
@@ -90,7 +83,12 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    printf(_("Your number is: %d\n"), low);
+    if (is_roman) {
+        strcpy(strnum, int_to_roman(low));
+    } else {
+        sprintf(strnum, "%d", low);
+    }
+    printf(_("Your number is: %s\n"), strnum);
 
     return 0;
 }

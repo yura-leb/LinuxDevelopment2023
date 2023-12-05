@@ -24,5 +24,6 @@ AC_CHECK_FUNCS([realpath setlocale])
 AC_CONFIG_FILES([
 	Makefile
 	Doxyfile
+	guess.md
 ])
 AC_OUTPUT

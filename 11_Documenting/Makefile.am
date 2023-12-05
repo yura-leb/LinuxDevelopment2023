@@ -5,9 +5,9 @@ pkgdata_DATA=ru/LC_MESSAGES/guess.mo
 
 all-local:	doxygen-doc
 
-doxygen-doc/man/man1/namegen.1:	doxygen-doc
+doxygen-doc/man/man1/guess.1:	doxygen-doc
 
-man1_MANS = doxygen-doc/man/man1/namegen.1
+man1_MANS = doxygen-doc/man/man1/guess.1
 
 ru/LC_MESSAGES/guess.mo: ru.po
 	mkdir -p `dirname $@`
@@ -26,6 +26,12 @@ run_en:
 
 run_ru:
 	LANGUAGE=ru_RU.UTF8 ./guess
+
+run_en_roman:
+	./guess -r
+
+run_ru_roman:
+	LANGUAGE=ru_RU.UTF8 ./guess -r
 
 clean:
 	git clean -fd

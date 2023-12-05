@@ -7,4 +7,4 @@ Guesses a number from 1 to 100 using binary search, even with roman numbers.
 ## Usage
 Usage:	number [-r]
 
-	-ruse	roman numbers
+	-r 	use roman numbers
