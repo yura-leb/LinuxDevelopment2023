@@ -1,0 +1,10 @@
+/// @mainpage
+# @PACKAGE_NAME@ v. @PACKAGE_VERSION@
+
+## Intro
+Guesses a number from 1 to 100 using binary search, even with roman numbers.
+
+## Usage
+Usage:	number [-r]
+
+	-ruse	roman numbers

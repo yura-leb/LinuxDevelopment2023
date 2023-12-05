@@ -1,3 +1,6 @@
+/** @file guess.c
+ * Guesses a number from 1 to 100 using binary search, even with roman numbers.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <libgen.h>
@@ -38,7 +41,7 @@ char *int_to_roman(int number) {
  *
  * @param number value for conversion
  */
-char *roman_to_int(int number) {
+char *roman_to_int(char *number) {
     for (int i = 1; i <= 100; i++) {
         if (strcmp(roman_numbers[i], number) == 0)
             return roman_numbers[i];
@@ -60,8 +63,7 @@ int main(int argc, char *argv[]) {
     
     if (argc == 2) {
         if (strcmp(argv[1], "--help") == 0) {
-            printf(_("Guesses a number from 1 to 100 using \
-                      binary search, even with roman numbers.\n"));
+            printf(_("Guesses a number from 1 to 100 using binary search, even with roman numbers.\n"));
             printf(_("Usage: number [-r]\n"));
             printf(_("\t-r\tuse roman numbers\n"));
             return 0;

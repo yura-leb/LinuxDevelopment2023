@@ -2,8 +2,9 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([L10n gettext example], [0.0], [yura-leb])
+AC_INIT([Number finder], [0.0.1], [yura-leb], [number_finder])
 AM_INIT_AUTOMAKE([foreign])
+DX_INIT_DOXYGEN([number_finder])
 AC_CONFIG_SRCDIR([guess.c])
 AC_CONFIG_HEADERS([config.h])
 
@@ -20,5 +21,8 @@ AC_CHECK_HEADERS([libintl.h locale.h stdlib.h])
 # Checks for library functions.
 AC_CHECK_FUNCS([realpath setlocale])
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([
+	Makefile
+	Doxyfile
+])
 AC_OUTPUT

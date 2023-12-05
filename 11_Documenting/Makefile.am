@@ -1,6 +1,14 @@
 bin_PROGRAMS=guess
 pkgdata_DATA=ru/LC_MESSAGES/guess.mo
 
+@DX_RULES@
+
+all-local:	doxygen-doc
+
+doxygen-doc/man/man1/namegen.1:	doxygen-doc
+
+man1_MANS = doxygen-doc/man/man1/namegen.1
+
 ru/LC_MESSAGES/guess.mo: ru.po
 	mkdir -p `dirname $@`
 	msgfmt $< -o $@
@@ -21,3 +29,6 @@ run_ru:
 
 clean:
 	git clean -fd
+
+http:	doxygen-doc
+	python3 -m http.server --directory $</html

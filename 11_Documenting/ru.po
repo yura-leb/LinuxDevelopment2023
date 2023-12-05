@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  08_I18n\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-05 09:14+0000\n"
+"POT-Creation-Date: 2023-12-05 09:40+0000\n"
 "PO-Revision-Date: 2023-11-13 14:49+0000\n"
 "Last-Translator: Yuriy Lebedinskiy <yurleb@linuxprac.box.office.basealt.ru>\n"
 "Language-Team: Russian <gnu@d07.ru>\n"
@@ -22,39 +22,39 @@ msgstr ""
 #: guess.c:63
 #, c-format
 msgid ""
-"Guesses a number from 1 to 100 using                       binary search, "
-"even with roman numbers.\n"
+"Guesses a number from 1 to 100 using \n"
+"binary search, even with roman numbers.\n"
 msgstr ""
 
-#: guess.c:65
+#: guess.c:64
 #, c-format
 msgid "Usage: number [-r]\n"
 msgstr ""
 
-#: guess.c:66
+#: guess.c:65
 #, c-format
 msgid "\t-r\tuse roman numbers\n"
 msgstr ""
 
-#: guess.c:78
+#: guess.c:77
 #, c-format
 msgid "Is it greater than %d? Enter yes or no\n"
 msgstr "Ваше число больше, чем %d? Ответьте да или нет\n"
 
-#: guess.c:82
+#: guess.c:81
 msgid "yes"
 msgstr "да"
 
-#: guess.c:84
+#: guess.c:83
 msgid "no"
 msgstr "нет"
 
-#: guess.c:87
+#: guess.c:86
 #, c-format
 msgid "Incorrect answer\n"
 msgstr "Неправильный формат ввода\n"
 
-#: guess.c:91
+#: guess.c:90
 #, c-format
 msgid "Your number is: %d\n"
 msgstr "Ваше число: %d\n"
